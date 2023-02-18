@@ -86,12 +86,8 @@ class GameView(arcade.View):
         self.player_sprite.center_y = (HEIGHT // 2) + MARGIN
 
         # Player-2 Initial Position
-        # splash.center_x = (MARGIN + WIDTH) * column + MARGIN + WIDTH // 2
-        # splash.center_y = (MARGIN + HEIGHT) * row + MARGIN + HEIGHT // 2
         self.player2_sprite.center_x = (MARGIN + WIDTH) * (COLUMN_COUNT - 1) + MARGIN + WIDTH // 2
         self.player2_sprite.center_y = (MARGIN + HEIGHT) * (ROW_COUNT - 1) + MARGIN + HEIGHT // 2
-        # self.player2_sprite.center_x = SCREEN_WIDTH - ((WIDTH // 2) + MARGIN)
-        # self.player2_sprite.center_y = SCREEN_HEIGHT - ((HEIGHT // 2) + MARGIN)
 
         # Adding Players to the players sprite list
         self.player_list.append(self.player_sprite)
@@ -489,10 +485,13 @@ class GameOverView(arcade.View):
 
     def on_draw(self):
         """ Draw this view """
+        
         self.clear()
+        
+        # Game Over
         arcade.draw_text("GAME OVER", self.window.width / 2, self.window.height / 2,
                          arcade.color.WHITE, font_size=50, anchor_x="center", font_name="Kenney Future")
-        # Uncomment the code below to implement the Game Status - Win, Lose, Draw
+        # Game Decision
         arcade.draw_text(game_status, self.window.width / 2, self.window.height / 2 - 75,
                          arcade.color.WHITE, font_size=20, anchor_x="center", font_name="Kenney Future")
 
